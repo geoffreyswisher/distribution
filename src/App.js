@@ -2,7 +2,7 @@ import React, { useState, useEffect} from 'react';
 import './App.css';
 import {csv} from 'd3';
 import csvfile from './20_cities.csv'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, DistanceMatrixService } from '@react-google-maps/api';
 import MapContainer from './MapContainer'
 
 function getCities(data, country) {
@@ -10,7 +10,7 @@ function getCities(data, country) {
   let cities = [];
 
   data.forEach(item => {
-    if (item.country == country) {
+    if (item.country === country) {
       cities.push(item);
     }
   })
@@ -19,7 +19,6 @@ function getCities(data, country) {
 }
 
 function App() {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -32,7 +31,10 @@ function App() {
 
   return (
     <div>
-      <MapContainer></MapContainer>
+      <MapContainer>
+        
+      </MapContainer>
+      
     </div>
   );
 }

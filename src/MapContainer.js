@@ -1,5 +1,7 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, DistanceMatrixService } from '@react-google-maps/api';
+
+
 
 const containerStyle = {
   width: '400px',
@@ -14,7 +16,9 @@ const center = {
 function MyComponent() {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"
+    //googleMapsApiKey: "AIzaSyAyesbQMyKVVbBgKVi2g6VX7mop2z96jBo"
+    googleMapsApiKey: process.env.REACT_APP_GOOGLEMAPS_API_KEY
+    //googleMapsApiKey:  "AIzaSyDYhnjZvA-rKyQyMIaoajuWSQZQwD72qfM"
   })
 
   const [map, setMap] = React.useState(null)
@@ -31,6 +35,7 @@ function MyComponent() {
 
   return isLoaded ? (
       <GoogleMap
+
         mapContainerStyle={containerStyle}
         center={center}
         zoom={10}
