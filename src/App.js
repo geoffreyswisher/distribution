@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import React, { useState, useEffect} from 'react';
 import './App.css';
+import {csv} from 'd3';
+import csvfile from './20_cities.csv'
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import MapContainer from './MapContainer'
+
+function getCities(data, country) {
+
+  let cities = [];
+
+  data.forEach(item => {
+    if (item.country == country) {
+      cities.push(item);
+    }
+  })
+
+  return cities
+}
 
 function App() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    csv(csvfile).then(data => {
+      setData(data);
+    });
+  }, []);
+
+  console.log(getCities(data, 'United States'));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MapContainer></MapContainer>
     </div>
   );
 }
