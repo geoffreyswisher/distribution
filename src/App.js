@@ -4,6 +4,7 @@ import {csv} from 'd3';
 import csvfile from './20_cities.csv'
 import { GoogleMap, useJsApiLoader, DistanceMatrixService } from '@react-google-maps/api';
 import MapContainer from './MapContainer'
+import InputForm from './InputForm'
 
 function getCities(data, country) {
 
@@ -32,9 +33,10 @@ function App() {
   return (
     <div>
       <MapContainer>
-        
       </MapContainer>
       
+      <InputForm></InputForm>
+
     </div>
   );
 }
