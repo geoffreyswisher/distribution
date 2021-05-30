@@ -36,3 +36,48 @@
     transform: rotate(360deg);
   }
 }
+
+
+html {
+  background-color: #282c34;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.map {
+  margin-top: 50px;
+}
+
+.input-wrapper {
+  margin-top: 175px;
+}
+
+.country-form {
+  margin-bottom: 50px
+}
+
+.country-label {
+  color: #aaaaaa;
+  margin-left: 20px;
+}
+
+.country-input {
+  margin-left: 150px;
+}
+
+.truck-label {
+  color: #aaaaaa;
+  margin-left: 20px;
+}
+
+input {
+  background-color: #aaaaaa;
+  color: #282c34;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+}
