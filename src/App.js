@@ -2,7 +2,6 @@ import React, { useState, useEffect} from 'react';
 import './App.css';
 import {csv} from 'd3';
 import csvfile from './20_cities.csv'
-import { GoogleMap, useJsApiLoader, DistanceMatrixService } from '@react-google-maps/api';
 import MapContainer from './MapContainer'
 import DataHandler from './DataHandler'
 
