@@ -1,22 +1,9 @@
-import React, { useState, useEffect} from 'react'
+import React from 'react'
 
 import {csv} from 'd3';
 import csvfile from './20_cities.csv'
 
 import {CountryForm, TruckForm} from './InputForms'
-
-/*function getCities(data, country) {
-
-    let cities = [];
-  
-    data.forEach(item => {
-      if (item.country === country) {
-        cities.push(item);
-      }
-    })
-  
-    return cities
-}*/
 
 class DataHandler extends React.Component {
 
@@ -39,13 +26,13 @@ class DataHandler extends React.Component {
 
     componentDidMount() {
         csv(csvfile).then(data => {
-            this.state.csvdata = data
+            this.setState({csvdata: data})
         })
     }
 
     getCities() {
 
-        this.state.cities = []
+        this.setState({cities: []})
       
         this.state.csvdata.forEach(item => {
             
